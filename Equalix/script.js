@@ -1,7 +1,10 @@
 'use-strict';
+const title = document.getElementById("title");
 let score = 30;
 let highscore = 0;
 const numbers = [... Array(4)].map(e=> Math.floor(Math.random() * 100) + 1);
+title.style.display = 'none';
+
 
 function displayMessage(message){
     document.querySelector('.message').textContent = message;
