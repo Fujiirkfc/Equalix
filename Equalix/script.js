@@ -1,10 +1,26 @@
 'use-strict';
+
+//Elements
+
 const title = document.getElementById("title");
+const equation = document.getElementById("equation");
+const scores = document.getElementById("rightab");
+const box = document.querySelector('.answer');
 let score = 30;
 let highscore = 0;
-const numbers = [... Array(4)].map(e=> Math.floor(Math.random() * 100) + 1);
-title.style.display = 'none';
 
+
+const numbers = [... Array(4)].map(e=> Math.floor(Math.random() * 100) + 1);
+
+
+//Start screen of the game
+
+function startScreen(){
+    equation.style.display = 'none';
+    scores.style.display = 'none';
+    box.style.display = 'none';
+}
+startScreen();
 
 function displayMessage(message){
     document.querySelector('.message').textContent = message;
@@ -26,14 +42,14 @@ function getRandomNumber(numbers){
 }
 
 function displayGame(){
-document.querySelector('.number').textContent = getRandomNumber(numbers) + getRandomOperator() + getRandomNumber(numbers);
+    equation.textContent = getRandomNumber(numbers) + getRandomOperator() + getRandomNumber(numbers);
 }
 
 displayGame();
 
 document.querySelector('.check').addEventListener('click', function(){
-    const correctAnswer = Number(eval(document.querySelector('.number').textContent));
-    const answer = Number(document.querySelector('.answer').value);
+    const correctAnswer = Number(eval(equation.textContent));
+    const answer = Number(box.value);
     console.log(answer);
     console.log(correctAnswer);
     if(answer === correctAnswer){
