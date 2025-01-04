@@ -31,8 +31,9 @@ startScreen();
 
 
 // display the message according to the answer
-function displayMessage(message){
+function displayMessage(message, color){
     document.querySelector('.message').textContent = message;
+    document.querySelector('.message').style.color = color;
 }
 
 
@@ -58,7 +59,7 @@ function getRandomNumber(numbers){
 function displayGame(){
 
     equation.style.display = 'block';
-    scores.style.display = 'block';
+    scores.style.display = 'flex';
     box.style.display = 'block';
     check.style.display = 'block';
     again.style.display = 'block';
@@ -74,13 +75,13 @@ function displayGame(){
      console.log(answer);
      console.log(correctAnswer);
      if(answer === correctAnswer){
-         displayMessage('Correct answer! congratulations');
+         displayMessage(`Correct answer! congratulations`, 'green');
          highscore += score;
          document.querySelector('.highscore').textContent = highscore;
          displayGame();
      }
      else{
-             displayMessage('Wrong, not a number');
+             displayMessage(`Wrong, not a number`, '#ec2e15');
      }
  })
 };
