@@ -10,6 +10,7 @@ const start = document.querySelector('.start');
 const credits = document.querySelector('.credits');
 const check = document.querySelector('.check');
 const again = document.querySelector('.again');
+const mainScore = document.querySelector('.score');
 let score = 30;
 let highscore = 0;
 
@@ -61,28 +62,59 @@ function displayGame(){
     equation.style.display = 'block';
     scores.style.display = 'flex';
     box.style.display = 'block';
-    check.style.display = 'block';
-    again.style.display = 'block';
+    check.style.display = 'flex';
+    check.style.top = '30px';
+    again.style.display = 'flex';
+    again.style.top = '30px';
     start.style.display = 'none';
-    title.style.display = 'none';
+    title.style.display = 'block';
+    title.style.fontSize = '5rem';
+    title.style.top = '10%';
     credits.style.display = 'none';
-
+    mainScore.textContent = score;
     equation.textContent = getRandomNumber(numbers) + getRandomOperator() + getRandomNumber(numbers);
+    check.addEventListener('click', checkAnswer);
+    again.addEventListener('click', restartGame);
+}
 
-     document.querySelector('.check').addEventListener('click', function(){
+function checkAnswer(){
      const correctAnswer = Number(eval(equation.textContent));
+     console.log(correctAnswer);
      const answer = Number(box.value);
      console.log(answer);
-     console.log(correctAnswer);
+
      if(answer === correctAnswer){
-         displayMessage(`Correct answer! congratulations`, 'green');
-         highscore += score;
-         document.querySelector('.highscore').textContent = highscore;
-         displayGame();
+        displayMessage(`Correct answer! congratulations`, 'green');
+        highscore += score;
+        document.querySelector('.highscore').textContent = highscore;
+        box.value = '';
+        score = 30;
+        mainScore.textContent = score;
+        displayGame();
      }
-     else{
-             displayMessage(`Wrong, not a number`, '#ec2e15');
+     else if(!answer){
+        displayMessage(`No number!`, '#ec2e15')
      }
- })
-};
-// resultado da operacao: eval(document.querySelector('.number').textContent));
+     else if(answer !== correctAnswer){
+        if(score > 1){
+             displayMessage(`Wrong guess! try again`, '#ec2e15');
+             score--;
+             mainScore.textContent = score;
+        }
+        else{
+        displayMessage(`Game over!`, '#ec2e15');
+        mainScore.textContent = 0;
+        check.style.display = 'none';
+        }
+    }
+}
+function restartGame(){
+        score = 30;
+        highscore = 0;
+        mainScore.textContent = score;
+        document.querySelector('.highscore').textContent = highscore;
+        box.value = '';
+        displayMessage();
+        displayGame();
+    }
+
