@@ -11,22 +11,43 @@ const credits = document.querySelector('.credits');
 const check = document.querySelector('.check');
 const again = document.querySelector('.again');
 const mainScore = document.querySelector('.score');
+const creditsText = document.querySelector('.credits-message');
+let escapeFunction;
 let score = 30;
 let highscore = 0;
 
+document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+        startScreen();
+    }
+})
 
-const numbers = [... Array(4)].map(e=> Math.floor(Math.random() * 100) + 1);
+//display credits
+function displayCredits(){
+    start.style.display = 'none';
+    credits.style.display = 'none';
+    creditsText.style.display = 'flex';
+    //need to put the link text in blue
+
+}
+// remove the event listener after display credits end
 
 
 //Equalix main menu screen
 
 function startScreen(){
+    title.style.fontSize = '10vw';
+    title.style.top = '110%';
+    start.style.display = 'block';
+    credits.style.display = 'block';
     equation.style.display = 'none';
     scores.style.display = 'none';
     box.style.display = 'none';
     check.style.display = 'none';
     again.style.display = 'none';
+    creditsText.style.display = 'none';
     start.addEventListener('click', displayGame);
+    credits.addEventListener('click', displayCredits);
 }
 startScreen();
 
@@ -50,9 +71,8 @@ function getRandomOperator() {
 }
 
 //logic of random numbers choice
-function getRandomNumber(numbers){
-    const randomIndex = Math.floor(Math.random() * numbers.length);
-    return numbers[randomIndex];
+function getRandomNumber() {
+    return Math.floor(Math.random() * 100) + 1;
 }
 
 
@@ -72,8 +92,18 @@ function displayGame(){
     title.style.top = '10%';
     credits.style.display = 'none';
     mainScore.textContent = score;
-    equation.textContent = getRandomNumber(numbers) + getRandomOperator() + getRandomNumber(numbers);
+    equation.textContent = getRandomNumber() + getRandomOperator() + getRandomNumber();
     check.addEventListener('click', checkAnswer);
+    document.addEventListener('keydown', function(e){
+        if(e.key === 'Enter'){
+            e.preventDefault();
+            checkAnswer();
+            console.log('enter pressed!')
+        }
+    })
+
+    // implement this function above to the other buttons as well.
+
     again.addEventListener('click', restartGame);
 }
 
@@ -117,4 +147,5 @@ function restartGame(){
         displayMessage();
         displayGame();
     }
+
 
