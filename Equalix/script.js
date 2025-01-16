@@ -12,30 +12,41 @@ const check = document.querySelector('.check');
 const again = document.querySelector('.again');
 const mainScore = document.querySelector('.score');
 const creditsText = document.querySelector('.credits-message');
-let escapeFunction;
+const messages = document.querySelector('.message');
+
+//Global variables
+let enterFunction = false;
 let score = 30;
 let highscore = 0;
-
-document.addEventListener('keydown', function(e){
-    if (e.key === 'Escape'){
-        startScreen();
-    }
-})
 
 //display credits
 function displayCredits(){
     start.style.display = 'none';
     credits.style.display = 'none';
     creditsText.style.display = 'flex';
-    //need to put the link text in blue
-
 }
-// remove the event listener after display credits end
 
+document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape'){
+        e.preventDefault();
+        startScreen();
+    }
+    else if(e.key === 'Enter'){
+        e.preventDefault();
+        checkAnswer();
+        if(enterFunction === 'enterGame'){
+            displayGame();
+        }
+        else if(enterFunction === 'checkA'){
+            checkAnswer();
+        }
+    }
+});
 
 //Equalix main menu screen
 
 function startScreen(){
+    messages.style.display = 'none';
     title.style.fontSize = '10vw';
     title.style.top = '110%';
     start.style.display = 'block';
@@ -48,14 +59,14 @@ function startScreen(){
     creditsText.style.display = 'none';
     start.addEventListener('click', displayGame);
     credits.addEventListener('click', displayCredits);
+    enterFunction = 'enterGame';
 }
 startScreen();
 
-
 // display the message according to the answer
 function displayMessage(message, color){
-    document.querySelector('.message').textContent = message;
-    document.querySelector('.message').style.color = color;
+    messages.textContent = message;
+    messages.style.color = color;
 }
 
 
@@ -78,7 +89,8 @@ function getRandomNumber() {
 
 //displays the game
 function displayGame(){
-
+    messages.style.display = 'flex';
+    messages.textContent = '';
     equation.style.display = 'block';
     scores.style.display = 'flex';
     box.style.display = 'block';
@@ -94,13 +106,7 @@ function displayGame(){
     mainScore.textContent = score;
     equation.textContent = getRandomNumber() + getRandomOperator() + getRandomNumber();
     check.addEventListener('click', checkAnswer);
-    document.addEventListener('keydown', function(e){
-        if(e.key === 'Enter'){
-            e.preventDefault();
-            checkAnswer();
-            console.log('enter pressed!')
-        }
-    })
+    enterFunction = 'checkA'
 
     // implement this function above to the other buttons as well.
 
@@ -138,6 +144,7 @@ function checkAnswer(){
         }
     }
 }
+
 function restartGame(){
         score = 30;
         highscore = 0;
@@ -147,5 +154,3 @@ function restartGame(){
         displayMessage();
         displayGame();
     }
-
-
