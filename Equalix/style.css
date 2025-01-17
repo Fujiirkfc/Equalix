@@ -32,18 +32,30 @@ main {
 }
 
 .right {
-    position: absolute; 
+    position: absolute;
+    display: flex;
+    width: 100%;
     bottom: 130%;
     font-size: 1.5vw; 
-    left: 70%;
+    left: 0%;
     gap: 20px;
-    display: flex;
-    flex-direction: column; 
-    width: auto;
     flex-wrap: nowrap; 
-    overflow: hidden;       
+    justify-content: space-between;      
 }
 
+.btn.menu {
+    position: relative;
+    right: 50%;
+    font-size: 1.6vw;
+    height: 20%;
+}
+
+.score-container{
+    position: relative;
+    left: 70%;         
+    flex-direction: column;
+    text-align: left; 
+}
 
 .left {
     position: relative;

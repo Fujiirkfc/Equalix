@@ -13,9 +13,10 @@ const again = document.querySelector('.again');
 const mainScore = document.querySelector('.score');
 const creditsText = document.querySelector('.credits-message');
 const messages = document.querySelector('.message');
+const btnMenu = document.querySelector('.btn.menu');
 
 //Global variables
-let enterFunction = false;
+let enterFunction;
 let score = 30;
 let highscore = 0;
 
@@ -89,6 +90,7 @@ function getRandomNumber() {
 
 //displays the game
 function displayGame(){
+    score= 30;
     messages.style.display = 'flex';
     messages.textContent = '';
     equation.style.display = 'block';
@@ -107,9 +109,7 @@ function displayGame(){
     equation.textContent = getRandomNumber() + getRandomOperator() + getRandomNumber();
     check.addEventListener('click', checkAnswer);
     enterFunction = 'checkA'
-
-    // implement this function above to the other buttons as well.
-
+    btnMenu.addEventListener('click', startScreen);
     again.addEventListener('click', restartGame);
 }
 
