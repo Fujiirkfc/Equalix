@@ -48,6 +48,7 @@ main {
     right: 50%;
     font-size: 1.6vw;
     height: 20%;
+    transform: translateY(15px);
 }
 
 .score-container{
