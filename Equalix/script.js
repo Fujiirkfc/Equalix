@@ -34,9 +34,9 @@ document.addEventListener('keydown', function(e){
     }
     else if(e.key === 'Enter'){
         e.preventDefault();
-        checkAnswer();
         if(enterFunction === 'enterGame'){
             displayGame();
+            messages.textContent = '';
         }
         else if(enterFunction === 'checkA'){
             checkAnswer();
@@ -92,10 +92,10 @@ function getRandomNumber() {
 function displayGame(){
     score= 30;
     messages.style.display = 'flex';
-    messages.textContent = '';
     equation.style.display = 'block';
     scores.style.display = 'flex';
     box.style.display = 'block';
+    box.value = '';
     check.style.display = 'flex';
     check.style.top = '30px';
     again.style.display = 'flex';
@@ -123,7 +123,6 @@ function checkAnswer(){
         displayMessage(`Correct answer! congratulations`, 'green');
         highscore += score;
         document.querySelector('.highscore').textContent = highscore;
-        box.value = '';
         score = 30;
         mainScore.textContent = score;
         displayGame();
