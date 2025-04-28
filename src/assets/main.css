@@ -1,0 +1,111 @@
+@import "tailwindcss";
+@import "tailwindcss/utilities";
+
+/* // TAILWIND RESPONSIVE SCREEN SIZE
+// xs = mobile-s(320)
+// sm = mobile-m(384)
+// md = mobile-l(448)
+// 3xl = tablet(768)
+// 5xl = desktop(1024) */
+
+.font-ps2p {
+    font-family: 'Press Start 2P', cursive;
+}
+
+@theme {
+    --color-darkgray: #272626;
+    --color-lightgray: #e9e8e8;
+    --color-blackout: #222222;
+
+    --breakpoint-xs: 320px;
+    --breakpoint-sm: 375px;
+    --breakpoint-md: 425px;
+    --breakpoint-3xl: 768px;
+    --breakpoint-5xl: 1024px;
+    --text-logo: 128px;
+}
+
+@layer components {
+    .logo {
+        @apply
+        text-lightgray 
+        text-center 
+        inset-x-0
+        leading-tight
+
+    }
+
+    .common-button {
+        @apply
+        bg-darkgray 
+        text-lightgray
+        text-center
+        py-3 
+        px-6 
+        border 
+        border-lightgray 
+        hover:bg-[#eeeeee] 
+        hover:text-blackout 
+        hover:scale-105 
+        transition-all 
+        shadow-lg
+
+        xs:text-[18px] 
+        sm:text-[22px] 
+        md:text-[26px] 
+        3xl:text-[32px] 
+        5xl:text-[36px]
+
+        
+        3xl:w-76
+        5xl:w-100
+    }
+
+    .equation {
+        @apply
+        absolute
+        bg-lightgray
+        text-blackout
+        text-center
+        top-85
+        left-1/2
+        w-screen
+        whitespace-normal
+        -translate-x-1/2
+        -translate-y-1/2
+        px-4
+
+        flex
+        items-center
+        justify-center
+
+        h-auto
+        xs:h-[70px]
+        sm:h-[90px]
+        md:h-[110px]
+        3xl:h-[200px]
+        5xl:h-[250px]
+
+        xs:text-[36px] 
+        sm:text-[40px] 
+        md:text-[46px] 
+        3xl:text-[86px] 
+        5xl:text-[112px]
+    }
+
+    .checkbox {
+        @apply
+        bg-transparent
+        border-4 
+        border-gray-200 
+        text-inherit
+        text-[60px]
+        py-3 
+        px-2
+        w-[300px]
+        h-[150px]
+        max-w-[300px]
+        text-center
+        block
+    }
+}
