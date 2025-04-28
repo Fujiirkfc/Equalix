@@ -80,7 +80,7 @@
         flex-col 
         items-center 
         gap-5 
-        sm:bottom-30
+        sm:bottom-24
         md:bottom-10
         3xl:bottom-6
         5xl:bottom-5
@@ -88,8 +88,9 @@
         ">
             <div class="
             text-center 
-            h-8 
-            mb-6
+            h-8
+            xs:mb-1
+            3xl:mb-6
             sm:text-[12px]
             md:text-[14px]
             3xl:text-[24px]
