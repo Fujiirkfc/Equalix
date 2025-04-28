@@ -3,8 +3,8 @@
 
 /* // TAILWIND RESPONSIVE SCREEN SIZE
 // xs = mobile-s(320)
-// sm = mobile-m(384)
-// md = mobile-l(448)
+// sm = mobile-m(375)
+// md = mobile-l(425)
 // 3xl = tablet(768)
 // 5xl = desktop(1024) */
 
@@ -56,8 +56,9 @@
         3xl:text-[32px] 
         5xl:text-[36px]
 
-        
-        3xl:w-76
+        sm:w-36
+        md:w-42
+        3xl:w-74
         5xl:w-100
     }
 
@@ -99,11 +100,23 @@
         border-4 
         border-gray-200 
         text-inherit
-        text-[60px]
         py-3 
         px-2
-        w-[300px]
-        h-[150px]
+
+        sm:text-[20px]
+        md:text-[24px]
+        3xl:text-[50px]
+        5xl:text-[60px]
+
+        sm:h-[55px]
+        md:h-[62px]
+        3xl:h-[112px]
+        5xl:h-[150px]
+
+        sm:w-[110px]
+        md:w-[124px]
+        3xl:w-[224px]
+        5xl:w-[300px]
         max-w-[300px]
         text-center
         block

@@ -52,7 +52,7 @@
             text-lightgray
 
             3xl:static 3xl:transform-none 3xl:left-auto 3xl:items-end
-            max-3xl:left-1/2 max-3xl:transform max-3xl:-translate-x-1/2 max-3xl:top-25
+            max-3xl:left-1/2 max-3xl:transform max-3xl:-translate-x-1/2 max-3xl:top-20
 
             md:text-[18px]
             3xl:text-[20px] 
@@ -74,7 +74,14 @@
         </div>
 
         <div class="absolute inset-x-0 flex flex-col items-center gap-5 bottom-5">
-            <div class="text-center text-[32px] h-8 mb-6" 
+            <div class="
+            text-center 
+            h-8 
+            mb-6
+            sm:text-[12px]
+            md:text-[14px]
+            3xl:text-[24px]
+            5xl:text-[32px]" 
             :class="messageColor === 'green' ? 'text-green-500' : 'text-red-500'">
           {{ message }}
         </div>

@@ -21,7 +21,11 @@
         mt-120
         text-lightgray 
         whitespace-nowrap
-        text-[36px]
+
+        sm:text-[14px]
+        md:text-[14px]
+        3xl:text-[28px]
+        5xl:text-[36px]
         ">
         <h2>Credits</h2>
         <p>Equalix Math Game</p>
