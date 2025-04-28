@@ -88,13 +88,11 @@
             <div class="
             text-center 
             h-8
-            xs:mb-1
-            3xl:mb-6
+            mb-1 md:mb-6
             sm:text-[12px]
             md:text-[14px]
             3xl:text-[24px]
             5xl:text-[32px]
-            max-sm:-mt-2
             " 
             :class="messageColor === 'green' ? 'text-green-500' : 'text-red-500'">
                 {{ message }}
