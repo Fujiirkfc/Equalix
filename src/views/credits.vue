@@ -22,8 +22,8 @@
         text-lightgray 
         whitespace-nowrap
 
-        sm:text-[14px]
-        md:text-[14px]
+        sm:text-[10px]
+        md:text-[12px]
         3xl:text-[28px]
         5xl:text-[36px]
         ">

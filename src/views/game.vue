@@ -73,7 +73,19 @@
             {{ equation }}
         </div>
 
-        <div class="absolute inset-x-0 flex flex-col items-center gap-5 bottom-5">
+        <div class="
+        absolute 
+        inset-x-0 
+        flex 
+        flex-col 
+        items-center 
+        gap-5 
+        sm:bottom-30
+        md:bottom-10
+        3xl:bottom-6
+        5xl:bottom-5
+        
+        ">
             <div class="
             text-center 
             h-8 
@@ -83,8 +95,8 @@
             3xl:text-[24px]
             5xl:text-[32px]" 
             :class="messageColor === 'green' ? 'text-green-500' : 'text-red-500'">
-          {{ message }}
-        </div>
+                {{ message }}
+            </div>
             <input 
                 type="number" 
                 class="checkbox text-lightgray" 
