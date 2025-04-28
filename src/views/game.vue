@@ -84,7 +84,6 @@
         md:bottom-10
         3xl:bottom-6
         5xl:bottom-5
-        
         ">
             <div class="
             text-center 
@@ -94,7 +93,9 @@
             sm:text-[12px]
             md:text-[14px]
             3xl:text-[24px]
-            5xl:text-[32px]" 
+            5xl:text-[32px]
+            max-sm:-mt-2
+            " 
             :class="messageColor === 'green' ? 'text-green-500' : 'text-red-500'">
                 {{ message }}
             </div>
