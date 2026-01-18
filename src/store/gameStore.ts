@@ -1,18 +1,49 @@
-import { reactive } from "vue";
+import { defineStore } from 'pinia'
 
-export const gameState = reactive({
-    score: 30,
-    highscore: 0,
-    equation: '',
-    userAnswer: '',
-    message: '',
-    messageColor: '',
-    enterFunction: null as 'enterGame' | 'checkA' | null,
+export interface GameState {
+  points: number
+  score: number
+  equation: string
+  userAnswer: string
+  message: string
+  messageColor: string
+}
+
+export const useGameStore = defineStore('game', {
+  state: (): GameState => {
+    return {
+      points: 30,
+      score: 0,
+      equation: '',
+      userAnswer: '',
+      message: '',
+      messageColor: '',
+    }
+  },
+  actions: {
+    restartGame() {
+      this.points = 30
+      this.score = 0
+      this.equation = ''
+      this.userAnswer = ''
+      this.message = ''
+      this.messageColor = ''
+    },
+    reducePoints() {
+      if (this.points > 0) {
+        this.points--
+      }
+    },
+    updateScore(amount: number) {
+      this.score += amount
+      this.points = 30
+    },
+    setEquation(equation: string) {
+      this.equation = equation
+    },
+    setMessage(message: string, color: string) {
+      this.message = message
+      this.messageColor = color
+    },
+  },
 })
-
-export const restartGame = () => {
-    gameState.score = 30;
-    gameState.highscore = 0
-    gameState.userAnswer = '';
-    gameState.message = '';
-};

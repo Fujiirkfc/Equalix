@@ -1,37 +1,22 @@
 <template>
-    <div class="absolute w-full h-screen bg-darkgray font-ps2p ">
-        <h1 class="    
-            logo
-            absolute
-            top-1/3
+  <div
+    class="bg-darkgray font-ps2p flex min-h-screen flex-col items-center justify-center gap-[4vw]"
+  >
+    <h1 class="logo">Equalix</h1>
+    <section
+      class="relative top-2/3 flex flex-col items-center gap-7"
+    >
+      <router-link :to="{ name: 'game' }">
+        <DefaultButton>Start game</DefaultButton>
+      </router-link>
 
-            xs:text-[40px] 
-            sm:text-[46px] 
-            md:text-[54px]
-            3xl:text-[90px] 
-            5xl:text-[128px]">
-            Equalix
-        </h1>
-        <section class="relative flex flex-col items-center gap-7 top-2/3">
-            <router-link 
-                :to="{name:'game'}" 
-                class="common-button">
-                Start game
-            </router-link>
-            <router-link 
-                :to="{name:'credits'}"
-                class="common-button">
-                Credits
-            </router-link>
-        </section>   
-    </div>
+      <router-link :to="{ name: 'credits' }" class="common-button">
+        <DefaultButton>Credits</DefaultButton>
+      </router-link>
+    </section>
+  </div>
 </template>
 
-<script lang="ts">
-    import { defineComponent } from 'vue';
-    
-    export default defineComponent({
-        name:'home',
-    });
+<script setup lang="ts">
+  import DefaultButton from '../components/common/DefaultButton/DefaultButton.vue'
 </script>
-
