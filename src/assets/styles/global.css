@@ -1,0 +1,32 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-darkgray: #272626;
+  --color-lightgray: #e9e8e8;
+  --color-blackout: #222222;
+  --font-ps2p: 'Press Start 2P', cursive;
+}
+
+@layer components {
+  .logo {
+    @apply text-lightgray inset-x-0 text-center text-5xl leading-tight md:text-7xl lg:text-8xl;
+  }
+
+  .subtitle {
+    @apply text-lightgray text-center text-lg md:text-xl lg:text-4xl;
+  }
+
+  .equation {
+    @apply bg-lightgray text-blackout absolute top-85 left-1/2 flex h-auto w-screen -translate-x-1/2 -translate-y-1/2 items-center justify-center px-4 text-center whitespace-normal sm:h-[90px] sm:text-[40px] md:h-[110px] md:text-[46px];
+  }
+
+  input[type='number']::-webkit-outer-spin-button,
+  input[type='number']::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  input[type='number'] {
+    -moz-appearance: textfield;
+  }
+}
