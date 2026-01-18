@@ -17,13 +17,4 @@
   import { useGameStore } from '../../../store/gameStore'
 
   const gameStore = useGameStore()
-  interface ScoresProps {
-    points: number
-    score: number
-  }
-
-  const props = withDefaults(defineProps<ScoresProps>(), {
-    points: 30,
-    score: 0,
-  })
 </script>

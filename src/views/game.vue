@@ -4,9 +4,7 @@
   >
     <Header></Header>
     <Equation></Equation>
-    <div
-      class="inset-x-0 flex flex-col items-center gap-5 sm:bottom-24 md:bottom-10"
-    >
+    <div class="inset-x-0 flex flex-col items-center gap-5">
       <h1
         class="mb-1 h-8 text-center md:mb-4 md:text-lg lg:text-xl"
         :class="
@@ -62,8 +60,10 @@
       gameStore.setMessage('Wrong guess!', 'red')
       gameStore.reducePoints()
     } else {
-      gameStore.setMessage('Game over!', 'red')
       gameStore.points = 0
+      gameStore.restartGame()
+      getNewEquation()
+      gameStore.setMessage('Game over!', 'red')
     }
   }
 
