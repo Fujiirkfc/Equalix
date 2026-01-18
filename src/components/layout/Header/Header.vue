@@ -32,9 +32,6 @@
   import DefaultButton from '../../common/DefaultButton/DefaultButton.vue'
   import Scores from '../Scores/Scores.vue'
 
-  // md:flex-initial
-  // md:text-left
-  // md:items-center
   const currentPoints = ref(30)
   const currentScore = ref(0)
 </script>
